@@ -56,4 +56,9 @@ dependencies {
     implementation project(':ethereumkit')
     implementation project(':erc20kit')
     implementation project(':uniswapkit')
+    implementation "com.github.trustwallet:wallet-connect-kotlin:1.4.9"
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
 }

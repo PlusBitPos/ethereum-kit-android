@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private val transactionsFragment = TransactionsFragment()
     private val sendReceiveFragment = SendReceiveFragment()
     private val swapFragment = SwapFragment()
+    private val walletConnectFragment = WalletConnectFragment()
     private val fm = supportFragmentManager
     private var active: Fragment = balanceFragment
 
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val navigation = findViewById<BottomNavigationView>(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(this)
 
+        fm.beginTransaction().add(R.id.fragment_container, walletConnectFragment, "4").hide(walletConnectFragment).commit()
         fm.beginTransaction().add(R.id.fragment_container, swapFragment, "4").hide(swapFragment).commit()
         fm.beginTransaction().add(R.id.fragment_container, sendReceiveFragment, "3").hide(sendReceiveFragment).commit()
         fm.beginTransaction().add(R.id.fragment_container, transactionsFragment, "2").hide(transactionsFragment).commit()
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.navigation_transactions -> transactionsFragment
             R.id.navigation_send_receive -> sendReceiveFragment
             R.id.navigation_swap -> swapFragment
+            R.id.navigation_walletconnect -> walletConnectFragment
             else -> null
         }
 
